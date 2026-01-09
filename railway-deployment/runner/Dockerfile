@@ -82,7 +82,6 @@ RUN echo "Installing Python packages: ${PY_PACKAGES}" && \
         musl-dev \
         linux-headers \
         openblas-dev \
-		python3 \
         lapack-dev && \
       pip install --no-cache-dir -r requirements.txt; \
     else \
