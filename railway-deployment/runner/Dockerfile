@@ -206,7 +206,9 @@ COPY --from=python-extras /usr/bin/ffmpeg /opt/runners/task-runner-python/.venv/
 COPY --from=python-extras /usr/bin/curl /opt/runners/task-runner-python/.venv/bin/curl
 COPY --from=python-extras /usr/bin/ffmpeg /usr/bin/ffmpeg
 COPY --from=python-extras /usr/bin/curl /usr/bin/curl
-#COPY --from=python-extras /usr/lib /usr/lib
+COPY --from=python-extras /usr/lib /usr/lib
+
+RUN cd /usr/lib && ls
 
 # Copy generated configuration
 COPY --from=config-generator /etc/n8n-task-runners.json /etc/n8n-task-runners.json
