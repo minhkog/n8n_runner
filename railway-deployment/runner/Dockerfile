@@ -204,6 +204,8 @@ RUN cd "/opt/runners/task-runner-python/.venv/bin" && ls
 
 COPY --from=python-extras /usr/bin/ffmpeg /opt/runners/task-runner-python/.venv/bin/ffmpeg
 COPY --from=python-extras /usr/bin/curl /opt/runners/task-runner-python/.venv/bin/curl
+COPY --from=python-extras /usr/bin/ffmpeg /usr/bin/ffmpeg
+COPY --from=python-extras /usr/bin/curl /usr/bin/curl
 #COPY --from=python-extras /usr/lib /usr/lib
 
 # Copy generated configuration
