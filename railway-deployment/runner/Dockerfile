@@ -82,6 +82,8 @@ RUN echo "Installing Python packages: ${PY_PACKAGES}" && \
         musl-dev \
         linux-headers \
         openblas-dev \
+		ffmpeg \
+		curl \
         lapack-dev && \
       pip install --no-cache-dir -r requirements.txt; \
     else \
