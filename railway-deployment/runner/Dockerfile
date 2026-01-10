@@ -200,11 +200,11 @@ COPY --from=javascript-extras /extras/node_modules /opt/runners/task-runner-java
 # CRITICAL: Use python3.13 path to match runner's Python version
 COPY --from=python-extras /usr/local/lib/python3.13/site-packages /opt/runners/task-runner-python/.venv/lib/python3.13/site-packages/
 
-RUN cd "/opt/runners/task-runner-python/.venv" && ls
+RUN cd "/opt/runners/task-runner-python/.venv/bin" && ls
 
-COPY --from=python-extras /usr/bin/ffmpeg /usr/bin/ffmpeg
-COPY --from=python-extras /usr/bin/curl /usr/bin/curl
-COPY --from=python-extras /usr/lib /usr/lib
+COPY --from=python-extras /usr/bin/ffmpeg /opt/runners/task-runner-python/.venv/bin/ffmpeg
+COPY --from=python-extras /usr/bin/curl /opt/runners/task-runner-python/.venv/bin/curl
+#COPY --from=python-extras /usr/lib /usr/lib
 
 # Copy generated configuration
 COPY --from=config-generator /etc/n8n-task-runners.json /etc/n8n-task-runners.json
